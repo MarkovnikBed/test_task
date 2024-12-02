@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./
+    ports: 
+    - "8080:8080"
+    environment:
+      - KEY=secret
+      - PASSWORD_MEDODS=12345
+      - PORT_MEDODS=5432
+      - USERNAME_MEDODS=postgres
+      - DB_MEDODS=avecoder
+      - HOST_MEDODS=postgres
+
+  postgres:
+    image: postgres
+    ports: 
+    - "7540:5432"
+    environment:
+      - POSTGRES_DB=avecoder
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_PORT=5432
